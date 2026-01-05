@@ -476,6 +476,66 @@
             color: #1f2937;
         }
 
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-duration {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .project-details {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-details li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .project-details li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
         /* Technical Skills */
         .skills-grid {
             display: grid;
@@ -968,9 +1028,9 @@
             <div class="logo">SK</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -982,14 +1042,14 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Sushma Kankatala</h1>
-                <h2>Senior Software Developer</h2>
+                <h2>Software Engineer</h2>
                 <div class="hero-description">
-                    Passionate technologist with 7+ years of expertise in crafting innovative solutions across Banking, Finance, Healthcare, and Retail domains. Specialized in building scalable microservices and modern web applications.
+                    Software Engineer with over 4 years of experience developing and supporting enterprise-scale applications. Experienced in delivering end-to-end features across user interfaces, backend services, and data layers, with a strong focus on code quality and system reliability.
                 </div>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number">7+</span>
+                        <span class="stat-number">4+</span>
                         <span class="stat-label">Years Experience</span>
                     </div>
                     <div class="stat-item">
@@ -1013,9 +1073,6 @@
                     </div>
                 </div>
             </div>
-            <div class="photo-placeholder">
-                <img src="SushmaPortphoto.JPG" alt="Sushma Kankatala - Full Stack Developer" class="profile-photo">
-            </div>
         </div>
     </section>
 
@@ -1025,24 +1082,56 @@
             <h2 class="section-title">Professional Experience</h2>
             <div class="experience-timeline">
                 
-                <!-- Western Union Experience -->
+                <!-- George Mason University Experience -->
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="company-name">Western Union</div>
+                        <div class="company-name">George Mason University</div>
                         <div class="role-duration">
-                            <div class="role">Senior Software Developer</div>
-                            <div class="duration">September 2023 - Present</div>
+                            <div class="role">Graduate Teaching Assistant</div>
+                            <div class="duration">August 2024 - Present</div>
                         </div>
-                        <div class="location">Austin, Texas, USA</div>
+                        <div class="location">Virginia, USA</div>
                     </div>
                     <ul class="responsibilities">
-                        <li>Architected and developed Spring Boot microservices in Java, enabling secure processing of high-volume financial transactions with fault-tolerant design</li>
-                        <li>Built REST and GraphQL APIs to support account services, fund transfers, and transaction history retrieval for both web and mobile banking channels</li>
-                        <li>Designed and developed React.js components in TypeScript with Redux state management, delivering responsive dashboards with reusable hooks and modular UI design</li>
-                        <li>Deployed microservices with Docker containers orchestrated on AWS EKS, ensuring scalability, resilience, and zero-downtime rollouts</li>
-                        <li>Automated infrastructure provisioning with Terraform for AWS resources, managing EKS clusters, RDS instances, and IAM policies for secure operations</li>
-                        <li>Implemented blue-green deployments on AWS EKS with automated rollback strategies, minimizing downtime during production releases</li>
-                        <li>Set up observability pipelines using Prometheus and Grafana integrated with AWS CloudWatch, enabling proactive monitoring and faster incident resolution</li>
+                        <li>Supported graduate-level courses in Software Engineering and Cloud Computing, assisting with labs covering Java, Python, SQL, REST APIs, and full-stack application development</li>
+                        <li>Guided students through Spring Boot-based backend development, explaining layered architecture and best practices for building maintainable services</li>
+                        <li>Assisted with database-focused labs, helping students design schemas, write SQL queries, and understand data flow between applications and relational databases</li>
+                        <li>Provided hands-on support for cloud and DevOps concepts, including Docker-based containerization, CI/CD fundamentals, and deployment workflows</li>
+                        <li>Reviewed and graded assignments offering structured feedback on code quality, API design, error handling, and performance considerations</li>
+                        <li>Helped debug environment, configuration, and deployment issues, strengthening understanding of real-world failure scenarios across local and cloud setups</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">Technologies:</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Cloud Computing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cognizant Technology Solutions - Software Engineer -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-name">Cognizant Technology Solutions</div>
+                        <div class="role-duration">
+                            <div class="role">Software Engineer</div>
+                            <div class="duration">July 2021 - June 2023</div>
+                        </div>
+                        <div class="location">India</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Worked on large-scale insurance policy and claims management systems, handling 2,000-3,000 business transactions per month across multiple insurance products</li>
+                        <li>Designed and enhanced React-based frontend modules for policy details, premium breakdowns, and claim status tracking with seamless backend integration</li>
+                        <li>Developed and maintained Java-based Spring Boot microservices for core insurance logic including policy validation, premium calculation, and claims processing</li>
+                        <li>Built and maintained RESTful APIs using Java, Spring MVC, and JPA, documenting 25+ endpoints using Swagger/OpenAPI for consistent API contracts</li>
+                        <li>Owned backend data interactions by writing and optimizing 80+ SQL queries on MySQL and PostgreSQL for transactional operations and audit reporting</li>
+                        <li>Containerized React frontend and Spring Boot backend services using Docker, deploying on Kubernetes clusters hosted on AWS</li>
+                        <li>Built and supported CI/CD pipelines using Jenkins and GitHub, automating build, test, and deployment workflows across multiple environments</li>
                     </ul>
                     <div class="tech-stack">
                         <div class="tech-stack-title">Technologies:</div>
@@ -1050,118 +1139,33 @@
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">Spring Boot</span>
                             <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Redux</span>
-                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Oracle</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Kafka</span>
-                            <span class="tech-tag">AWS EKS</span>
                             <span class="tech-tag">Docker</span>
                             <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">Terraform</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NextGen Healthcare Experience -->
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="company-name">NextGen Healthcare</div>
-                        <div class="role-duration">
-                            <div class="role">Software Developer</div>
-                            <div class="duration">October 2021 - August 2023</div>
-                        </div>
-                        <div class="location">Atlanta, Georgia, USA</div>
-                    </div>
-                    <ul class="responsibilities">
-                        <li>Collaborated with clinicians and product teams to design Java Spring Boot services that digitized patient registration, visit notes, and claims submission, reducing paperwork and accelerating clinical workflows</li>
-                        <li>Engineered healthcare data exchange services in Java using FHIR and HL7 standards, enabling secure interoperability with labs, pharmacies, and external provider systems</li>
-                        <li>Developed React.js and TypeScript portals for patients to schedule appointments, review visit summaries, and pay bills, while giving providers dashboards for documentation and task management</li>
-                        <li>Deployed healthcare services on AWS EKS using Docker containers with autoscaling policies, ensuring reliability during peak appointment booking seasons</li>
-                        <li>Configured AWS S3 and Lambda pipelines to securely process, archive, and retrieve scanned medical records and claims attachments in encrypted formats</li>
-                        <li>Set up event-driven workflows with Kafka, decoupling claims adjudication, billing notifications, and pharmacy updates to improve resilience and reduce downtime</li>
-                        <li>Led end-to-end testing efforts with JUnit, Mockito, and Selenium, validating complex healthcare scenarios such as multi-provider encounters and claims denial workflows before release</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <div class="tech-stack-title">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">Spring Security</span>
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Redux</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Oracle</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">FHIR</span>
-                            <span class="tech-tag">HL7</span>
                             <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">Kafka</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- The Hershey Company Experience -->
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="company-name">The Hershey Company</div>
-                        <div class="role-duration">
-                            <div class="role">Software Developer</div>
-                            <div class="duration">January 2020 - September 2021</div>
-                        </div>
-                        <div class="location">Derry Township, Pennsylvania, USA</div>
-                    </div>
-                    <ul class="responsibilities">
-                        <li>Built Java Spring Boot services to digitize manufacturing processes such as shift scheduling, production line tracking, and seasonal order handling, ensuring scalability during peak holiday demand</li>
-                        <li>Developed Java REST APIs that connected factory systems with warehouse and distribution platforms, enabling near real-time updates on stock levels and shipment statuses</li>
-                        <li>Built supply chain dashboards in Angular with TypeScript and RxJS, giving supervisors live visibility into line output, shipment status, and distributor activity</li>
-                        <li>Containerized services with Docker and implemented multi-stage Dockerfiles to reduce image size and deployment times across environments</li>
-                        <li>Orchestrated Docker containers in Kubernetes clusters using Helm, applying rolling updates and health checks to minimize downtime</li>
-                        <li>Automated CI/CD pipelines with Jenkins, packaging microservices into Docker images, running unit tests, and deploying to Kubernetes</li>
-                        <li>Configured AWS RDS for relational data, S3 for document storage, and SQS for event queues, ensuring reliable processing of production and shipment updates</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <div class="tech-stack-title">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">Angular</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">RxJS</span>
-                            <span class="tech-tag">NgRx</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Oracle</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Kubernetes</span>
                             <span class="tech-tag">Jenkins</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- WalkingTree Technologies Experience -->
+                <!-- Cognizant Technology Solutions - Intern -->
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="company-name">WalkingTree Technologies</div>
+                        <div class="company-name">Cognizant Technology Solutions</div>
                         <div class="role-duration">
-                            <div class="role">Software Developer</div>
-                            <div class="duration">June 2018 - December 2019</div>
+                            <div class="role">Software Engineer Intern</div>
+                            <div class="duration">July 2020 - July 2021</div>
                         </div>
-                        <div class="location">Hyderabad, India</div>
+                        <div class="location">India</div>
                     </div>
                     <ul class="responsibilities">
-                        <li>Assisted in developing backend modules using Java Spring Boot, implementing services and controllers to process customer onboarding and account management workflows</li>
-                        <li>Wrote SQL queries, joins, and stored procedures in Oracle to support reporting features and ensure accurate retrieval of financial data</li>
-                        <li>Built and modified user interface components with React.js, adding form handling and validation for customer registration and transaction screens</li>
-                        <li>Integrated frontend modules with backend services through REST APIs, ensuring smooth data exchange between client-facing applications and server-side logic</li>
-                        <li>Containerized application modules using Docker, which simplified setup for testing environments and ensured consistency across developer machines</li>
-                        <li>Gained exposure to AWS by deploying application builds to test environments and using cloud services for hosting and storage under guidance from senior developers</li>
-                        <li>Wrote unit and integration tests with JUnit/Mockito, increasing test coverage and code quality while participating in Agile Scrum practices</li>
+                        <li>Completed structured training in Java, object-oriented programming, SQL, and web application fundamentals, building a strong foundation for enterprise software development</li>
+                        <li>Gained hands-on exposure to Spring Boot and REST API concepts through guided assignments demonstrating backend-database-frontend interactions</li>
+                        <li>Practiced developing React UI components and integrating with sample APIs, learning component structure, props, state, and asynchronous data handling</li>
+                        <li>Learned API testing and documentation practices using Swagger and Postman, validating request-response flows and understanding team collaboration</li>
+                        <li>Participated in team workflows using GitHub for version control, Jira for task tracking, and observed Jenkins-based CI/CD pipelines</li>
                     </ul>
                     <div class="tech-stack">
                         <div class="tech-stack-title">Technologies:</div>
@@ -1169,13 +1173,46 @@
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">Spring Boot</span>
                             <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">SQL</span>
                             <span class="tech-tag">REST APIs</span>
-                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-name">Spring Boot Microservice on Kubernetes with Jenkins Automation</div>
+                        <div class="project-duration">January 2025 - May 2025</div>
+                    </div>
+                    <ul class="project-details">
+                        <li>Designed and implemented a Spring Boot RESTful microservice using JPA to manage survey data with full CRUD functionality</li>
+                        <li>Provisioned and integrated MySQL database on AWS RDS with VPC, subnets, and security groups for secure data storage</li>
+                        <li>Containerized the application using Docker and built Maven-based CI process, publishing images to Docker Hub</li>
+                        <li>Deployed containerized service to Kubernetes cluster on AWS EC2 managed via Rancher with NodePort and LoadBalancer services</li>
+                        <li>Implemented automated Jenkins CI/CD pipeline for build, containerization, and deployment from GitHub with end-to-end API testing</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">Technologies:</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">JPA</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">AWS RDS</span>
                             <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Git</span>
-                            <span class="tech-tag">JUnit</span>
-                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">Maven</span>
                         </div>
                     </div>
                 </div>
@@ -1195,6 +1232,18 @@
                     <div class="skill-name">Java</div>
                 </div>
                 <div class="skill-item">
+                    <div class="skill-icon" style="color: #3776ab;">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #f7df1e;">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                <div class="skill-item">
                     <div class="skill-icon" style="color: #6db33f;">
                         <i class="fas fa-leaf"></i>
                     </div>
@@ -1207,46 +1256,10 @@
                     <div class="skill-name">React.js</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon" style="color: #3178c6;">
-                        <i class="fab fa-js-square"></i>
+                    <div class="skill-icon" style="color: #13aa52;">
+                        <i class="fab fa-node-js"></i>
                     </div>
-                    <div class="skill-name">TypeScript</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon" style="color: #3776ab;">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <div class="skill-name">Python</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon" style="color: #ff9900;">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                    <div class="skill-name">AWS</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon" style="color: #0078d4;">
-                        <i class="fab fa-microsoft"></i>
-                    </div>
-                    <div class="skill-name">Azure</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon" style="color: #326ce5;">
-                        <i class="fas fa-dharmachakra"></i>
-                    </div>
-                    <div class="skill-name">Kubernetes</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon" style="color: #2496ed;">
-                        <i class="fab fa-docker"></i>
-                    </div>
-                    <div class="skill-name">Docker</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon" style="color: #231f20;">
-                        <i class="fas fa-stream"></i>
-                    </div>
-                    <div class="skill-name">Apache Kafka</div>
+                    <div class="skill-name">Node.js</div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon" style="color: #336791;">
@@ -1255,34 +1268,58 @@
                     <div class="skill-name">PostgreSQL</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon" style="color: #dc382d;">
+                    <div class="skill-icon" style="color: #00758f;">
                         <i class="fas fa-database"></i>
                     </div>
-                    <div class="skill-name">Redis</div>
+                    <div class="skill-name">MySQL</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon" style="color: #f68220;">
-                        <i class="fas fa-cube"></i>
+                    <div class="skill-icon" style="color: #ff9900;">
+                        <i class="fab fa-aws"></i>
                     </div>
-                    <div class="skill-name">Terraform</div>
+                    <div class="skill-name">AWS</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon" style="color: #4285f4;">
-                        <i class="fab fa-google"></i>
+                    <div class="skill-icon" style="color: #2496ed;">
+                        <i class="fab fa-docker"></i>
                     </div>
-                    <div class="skill-name">Google Cloud</div>
+                    <div class="skill-name">Docker</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon" style="color: #e76f00;">
-                        <i class="fas fa-fire"></i>
+                    <div class="skill-icon" style="color: #326ce5;">
+                        <i class="fas fa-dharmachakra"></i>
                     </div>
-                    <div class="skill-name">Apache Spark</div>
+                    <div class="skill-name">Kubernetes</div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon" style="color: #13aa52;">
-                        <i class="fab fa-node-js"></i>
+                    <div class="skill-icon" style="color: #d33833;">
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <div class="skill-name">Node.js</div>
+                    <div class="skill-name">Jenkins</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #000000;">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="skill-name">GitHub</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #ff6c2c;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="skill-name">Prometheus</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #f46800;">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <div class="skill-name">Grafana</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #ff6c37;">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="skill-name">Postman</div>
                 </div>
             </div>
         </div>
@@ -1296,10 +1333,10 @@
                 <div class="education-item">
                     <div class="degree">Master's in Computer Science</div>
                     <div class="university">George Mason University</div>
-                    <div class="edu-location">Ashburn, Virginia</div>
+                    <div class="edu-location">Virginia, USA</div>
                 </div>
                 <div class="education-item">
-                    <div class="degree">Bachelor's in Computer Science</div>
+                    <div class="degree">Bachelor's in Computer Science and Engineering</div>
                     <div class="university">JNTUH</div>
                     <div class="edu-location">Hyderabad, India</div>
                 </div>
@@ -1491,7 +1528,7 @@
             // Start typing effect for hero subtitle
             const heroSubtitle = document.querySelector('.hero h2');
             if (heroSubtitle) {
-                typeWriter(heroSubtitle, 'Senior Software Developer');
+                typeWriter(heroSubtitle, 'Software Engineer');
             }
 
             // Animate hero stats on load

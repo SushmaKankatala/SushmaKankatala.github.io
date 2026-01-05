@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushma Kankatala - Full Stack Developer Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="animations.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Full Screen Hero Section */
+        .hero {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        /* Dynamic Background Effects */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.05) 0%, transparent 50%);
+            animation: backgroundShift 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Mouse-following gradient effect */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            padding: 0 2rem;
+            z-index: 3;
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 400px;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hero h2::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #2563eb;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: #6b7280;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* Floating Icons Animation */
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite;
+            color: #2563eb;
+            transition: all 0.3s ease;
+        }
+
+        .floating-icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; color: #f89820; font-size: 1.5rem; }
+        .floating-icon:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; color: #61dafb; font-size: 2rem; }
+        .floating-icon:nth-child(3) { top: 40%; left: 20%; animation-delay: 2s; color: #6db33f; font-size: 1.7rem; }
+        .floating-icon:nth-child(4) { top: 60%; left: 70%; animation-delay: 3s; color: #3776ab; font-size: 1.6rem; }
+        .floating-icon:nth-child(5) { top: 80%; left: 30%; animation-delay: 4s; color: #ff9900; font-size: 1.8rem; }
+        .floating-icon:nth-child(6) { top: 15%; left: 50%; animation-delay: 5s; color: #326ce5; font-size: 1.5rem; }
+        .floating-icon:nth-child(7) { top: 70%; left: 90%; animation-delay: 1.5s; color: #dc382d; font-size: 1.7rem; }
+        .floating-icon:nth-child(8) { top: 30%; left: 5%; animation-delay: 2.5s; color: #47a248; font-size: 1.6rem; }
+        .floating-icon:nth-child(9) { top: 50%; left: 85%; animation-delay: 3.5s; color: #2496ed; font-size: 1.8rem; }
+        .floating-icon:nth-child(10) { top: 90%; left: 60%; animation-delay: 4.5s; color: #7c3aed; font-size: 1.5rem; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            25% { transform: translateY(-20px) rotate(45deg); opacity: 0.8; }
+            50% { transform: translateY(-40px) rotate(90deg); opacity: 0.7; }
+            75% { transform: translateY(-20px) rotate(135deg); opacity: 0.8; }
+        }
+
+        /* Enhanced floating icons on hover */
+        .hero:hover .floating-icon {
+            opacity: 0.9;
+            animation-duration: 6s;
+        }
+
+        /* Particle effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #2563eb, transparent);
+            border-radius: 50%;
+            animation: particles 8s linear infinite;
+        }
+
+        @keyframes particles {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .photo-placeholder {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+
+        .photo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 25px 80px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Floating orbs around photo */
+        .photo-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #60a5fa, transparent);
+            border-radius: 50%;
+            animation: orbit 8s linear infinite;
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b7280;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #3b82f6, #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb, #3b82f6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Sections */
+        section:not(.hero) {
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Make sure hero is always visible */
+        .hero {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        /* Hide header initially */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        header.visible {
+            transform: translateY(0);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            color: #6b7280;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            80% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+
+        /* Technical Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            background: linear-gradient(145deg, #ffffff, #e2e8f0);
+        }
+
+        .skill-item:nth-child(even):hover {
+            transform: translateY(-10px) scale(1.05) rotate(2deg);
+        }
+
+        .skill-item:nth-child(odd):hover {
+            transform: translateY(-10px) scale(1.05) rotate(-2deg);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #1f2937;
+            transition: color 0.3s ease;
+        }
+
+        .skill-item:hover .skill-name {
+            color: #2563eb;
+        }
+
+        /* Experience */
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-left-color: #2563eb;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .experience-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .company-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-duration {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .duration {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .location {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .responsibilities {
+            list-style: none;
+        }
+
+        .responsibilities li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4b5563;
+        }
+
+        .responsibilities li:before {
+            content: "▶";
+            color: #2563eb;
+            position: absolute;
+            left: 0;
+        }
+
+        .tech-stack {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .tech-stack-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: #2563eb;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .university {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-location {
+            color: #6b7280;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-content {
+                gap: 2rem;
+                padding: 0 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-text {
+                min-width: 300px;
+            }
+            
+            .photo-placeholder {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero-text {
+                min-width: auto;
+                text-align: center;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .photo-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile-photo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .role-duration {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .contact-item {
+                font-size: 0.9rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 1rem;
+            }
+
+            .floating-icon {
+                font-size: 1.2rem;
+                opacity: 0.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero-content {
+                padding: 0 0.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-item {
+                min-width: 100px;
+                padding: 0.8rem;
+            }
+
+            .photo-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 1rem;
+            }
+
+            .profile-photo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .contact-info {
+                gap: 0.5rem;
+            }
+
+            .contact-item {
+                font-size: 0.8rem;
+            }
+
+            .floating-icon {
+                font-size: 1rem;
+                opacity: 0.3;
+            }
+        }
+
+        /* Split screen / narrow width compatibility */
+        @media (max-width: 600px) and (min-height: 400px) {
+            .hero-content {
+                gap: 1.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+        /* Very narrow screens (split browser) */
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+            }
+            
+            .stat-item {
+                padding: 0.6rem;
+                min-width: 80px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .photo-placeholder {
+                width: 150px;
+                height: 150px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Icons Background -->
+    <div class="floating-icons">
+        <div class="floating-icon"><i class="fab fa-java"></i></div>
+        <div class="floating-icon"><i class="fab fa-react"></i></div>
+        <div class="floating-icon"><i class="fas fa-leaf"></i></div>
+        <div class="floating-icon"><i class="fab fa-python"></i></div>
+        <div class="floating-icon"><i class="fab fa-aws"></i></div>
+        <div class="floating-icon"><i class="fas fa-dharmachakra"></i></div>
+        <div class="floating-icon"><i class="fas fa-database"></i></div>
+        <div class="floating-icon"><i class="fab fa-node-js"></i></div>
+        <div class="floating-icon"><i class="fab fa-docker"></i></div>
+        <div class="floating-icon"><i class="fab fa-js-square"></i></div>
+    </div>
+
+    <!-- Particles Effect -->
+    <div class="particles" id="particles"></div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">SK</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Sushma Kankatala</h1>
+                <h2>Senior Full Stack Developer</h2>
+                <div class="hero-description">
+                    Passionate technologist with 7+ years of expertise in crafting innovative solutions across Banking, Finance, Healthcare, and Retail domains. Specialized in building scalable microservices and modern web applications.
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Major Domains</span>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>sushma.kankatala444@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (571) 353-1953</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Austin, Texas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-placeholder">
+                <img src="SushmaPortphoto.JPG" alt="Sushma Kankatala - Full Stack Developer" class="profile-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                
+                <!-- Western Union Experience -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-name">Western Union</div>
+                        <div class="role-duration">
+                            <div class="role">Senior Full Stack Developer</div>
+                            <div class="duration">September 2023 - Present</div>
+                        </div>
+                        <div class="location">Austin, Texas, USA</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Architected and implemented microservices with Spring Boot and Java 11, handling high-volume financial transactions securely and efficiently</li>
+                        <li>Designed React.js and TypeScript components with Redux state management to deliver responsive banking dashboards for customers and branch managers</li>
+                        <li>Built REST and GraphQL APIs for account services, payment processing, and transaction history retrieval, ensuring seamless integration with mobile and web apps</li>
+                        <li>Developed real-time fraud detection pipelines with Kafka and Spark Streaming, reducing fraudulent transactions by 25%</li>
+                        <li>Integrated the platform with SWIFT and ACH payment gateways, ensuring compliance with global banking standards</li>
+                        <li>Designed PostgreSQL and Oracle schemas optimized for transaction-heavy workloads, with indexing and partitioning strategies for query efficiency</li>
+                        <li>Enhanced caching with Redis to accelerate high-frequency balance inquiry APIs, improving response time by 40%</li>
+                        <li>Deployed microservices using Docker containers orchestrated with Kubernetes (EKS), enabling fault tolerance and high availability</li>
+                        <li>Applied Spring Security with OAuth2, JWT, and Multi-Factor Authentication (MFA) to enforce strong authentication for banking users</li>
+                        <li>Designed role-based access control (RBAC) ensuring fine-grained permissions for tellers, managers, and auditors</li>
+                        <li>Integrated ElasticSearch to enable fast searching of millions of transaction records for compliance and audit teams</li>
+                        <li>Built Next.js modules with server-side rendering (SSR) for secure login and account overview pages, reducing first-time load by 35%</li>
+                        <li>Developed WebSocket services for real-time updates on wire transfers, stock trades, and foreign exchange transactions</li>
+                        <li>Created fraud monitoring dashboards using D3.js and Recharts, providing predictive analytics for risk teams</li>
+                        <li>Configured Terraform and Helm to automate provisioning of cloud infrastructure across AWS environments</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">Technologies:</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java 11/17</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">Spark Streaming</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">ElasticSearch</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Terraform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NextGen Healthcare Experience -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-name">NextGen Healthcare</div>
+                        <div class="role-duration">
+                            <div class="role">Full Stack Developer</div>
+                            <div class="duration">October 2021 - August 2023</div>
+                        </div>
+                        <div class="location">Atlanta, Georgia, USA</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Designed and implemented Spring Boot microservices for patient registration, appointment scheduling, claims, and billing, ensuring scalability and high availability in a healthcare environment</li>
+                        <li>Developed React.js and TypeScript-based dashboards with Redux state management to support complex workflows such as clinical documentation, patient engagement, and provider communications</li>
+                        <li>Built and consumed RESTful APIs and GraphQL endpoints, enabling interoperability between EHR modules, pharmacy systems, and insurance providers</li>
+                        <li>Integrated FHIR and HL7 protocols to securely exchange lab results, prescriptions, and encounter data with external healthcare systems</li>
+                        <li>Optimized PostgreSQL and Oracle queries by designing efficient schemas, indexes, and stored procedures, which improved response times for clinical data retrieval by 30%</li>
+                        <li>Implemented Redis caching layers for high-frequency operations such as patient search and appointment history, reducing backend load during peak usage</li>
+                        <li>Secured services with Spring Security, OAuth2, JWT tokens, and role-based access controls, ensuring compliance with HIPAA security standards</li>
+                        <li>Developed Next.js server-rendered modules for the patient portal and provider dashboards, improving SEO performance and reducing initial load times</li>
+                        <li>Configured Kafka topics and event streams for asynchronous communication between billing, notifications, and claims modules, enhancing system resilience</li>
+                        <li>Integrated AWS S3 and Lambda functions for processing scanned medical records, claims attachments, and automating storage workflows</li>
+                        <li>Deployed containerized services using Docker and Kubernetes (EKS), setting up autoscaling and load balancing for high reliability</li>
+                        <li>Automated builds and deployments using Jenkins pipelines and GitHub Actions, reducing deployment cycles by 40% and minimizing manual interventions</li>
+                        <li>Applied CQRS and Saga patterns to manage distributed transactions in claims adjudication, ensuring consistency and fault tolerance</li>
+                        <li>Conducted unit, integration, and API testing with JUnit 5, Mockito, and REST Assured, improving test coverage and code quality</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">Technologies:</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java 11/17</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Spring Security</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">FHIR</span>
+                            <span class="tech-tag">HL7</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Hershey Company Experience -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-name">The Hershey Company</div>
+                        <div class="role-duration">
+                            <div class="role">Software Development Engineer</div>
+                            <div class="duration">January 2020 - September 2021</div>
+                        </div>
+                        <div class="location">Derry Township, Pennsylvania, USA</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Designed and implemented backend modules in Java and Spring Boot, building microservices to support order lifecycle workflows from initiation to delivery confirmation, ensuring scalability during seasonal demand spikes</li>
+                        <li>Developed interactive front-end dashboards using React.js and JavaScript, incorporating dynamic data binding and responsive layouts for distributors to track orders and inventory in real time</li>
+                        <li>Built and consumed RESTful APIs to integrate with third-party logistics providers, enabling real-time updates on shipment statuses, delivery timelines, and inventory synchronization across systems</li>
+                        <li>Created data persistence layers with Hibernate and JPA, managing complex entity relationships and improving database interaction efficiency with Oracle and PostgreSQL</li>
+                        <li>Designed batch processing jobs to handle high-volume transactions during product launches, ensuring that bulk updates to inventory and distributor records were processed within defined SLAs</li>
+                        <li>Enhanced software quality by creating unit and integration test suites with JUnit and Mockito, improving test coverage and reducing post-release issues</li>
+                        <li>Configured Jenkins pipelines for continuous integration and automated deployments, integrating build, test, and deployment stages for smoother release cycles</li>
+                        <li>Implemented caching strategies with Redis, improving response times for frequently accessed APIs like product availability and promotions by reducing unnecessary database queries</li>
+                        <li>Wrote complex SQL queries, stored procedures, and triggers in Oracle to support reporting dashboards and operational analytics used by supply chain managers</li>
+                        <li>Developed secure middleware services for payment processing, integrating with multiple external payment gateways and implementing encryption to safeguard financial transactions</li>
+                        <li>Set up centralized logging and exception handling using Log4j and ELK Stack, streamlining monitoring and root cause analysis across distributed microservices</li>
+                        <li>Deployed containerized services in Docker and orchestrated them with Kubernetes clusters, enabling elastic scaling during holiday seasons with high traffic demand</li>
+                        <li>Conducted load and stress testing using JMeter, validating system reliability and ensuring stability under peak loads of thousands of concurrent distributor transactions</li>
+                        <li>Designed Kafka-based asynchronous communication workflows to synchronize inventory updates between manufacturing plants, warehouses, and retail outlets in near real-time</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">Technologies:</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java 8/11</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Hibernate</span>
+                            <span class="tech-tag">JPA</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WalkingTree Technologies Experience -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-name">WalkingTree Technologies</div>
+                        <div class="role-duration">
+                            <div class="role">Software Developer</div>
+                            <div class="duration">June 2018 - December 2019</div>
+                        </div>
+                        <div class="location">Hyderabad, India</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Designed and implemented Spring MVC controllers, services, and DAO layers for business logic execution</li>
+                        <li>Developed responsive UI screens using Bootstrap, JavaScript, and jQuery to improve user experience</li>
+                        <li>Built and consumed RESTful APIs with Spring Boot for core services and integrated with third-party applications via SOAP/WSDL</li>
+                        <li>Optimized database queries, PL/SQL procedures, and indexing strategies in Oracle to improve response times by 25%</li>
+                        <li>Integrated Hibernate ORM for persistence, handling entity relationships and caching strategies</li>
+                        <li>Configured and deployed application modules on WebLogic Server, ensuring zero-downtime releases with Dockerized builds</li>
+                        <li>Implemented logging and monitoring using Log4j and supported production debugging in collaboration with QA/DevOps</li>
+                        <li>Followed Agile Scrum methodology, contributing to sprint planning, backlog refinement, and daily stand-ups</li>
+                        <li>Wrote unit and integration tests with JUnit/Mockito, increasing test coverage and code quality</li>
+                        <li>Used Git/SVN for version control, implementing branching/merging strategies for parallel development</li>
+                        <li>Collaborated with cross-functional teams to define technical requirements and improve system performance, resulting in higher customer satisfaction</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <div class="tech-stack-title">Technologies:</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java 8</span>
+                            <span class="tech-tag">Spring MVC</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Hibernate</span>
+                            <span class="tech-tag">JPA</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">SOAP</span>
+                            <span class="tech-tag">Oracle PL/SQL</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">jQuery</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">WebLogic</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #f89820;">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <div class="skill-name">Java</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #6db33f;">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="skill-name">Spring Boot</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #61dafb;">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="skill-name">React.js</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #3178c6;">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="skill-name">TypeScript</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #3776ab;">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #ff9900;">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="skill-name">AWS</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #0078d4;">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="skill-name">Azure</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #326ce5;">
+                        <i class="fas fa-dharmachakra"></i>
+                    </div>
+                    <div class="skill-name">Kubernetes</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #2496ed;">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <div class="skill-name">Docker</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #231f20;">
+                        <i class="fas fa-stream"></i>
+                    </div>
+                    <div class="skill-name">Apache Kafka</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #336791;">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-name">PostgreSQL</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #dc382d;">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-name">Redis</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #f68220;">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="skill-name">Terraform</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #4285f4;">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="skill-name">Google Cloud</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #e76f00;">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="skill-name">Apache Spark</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon" style="color: #13aa52;">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <div class="skill-name">Node.js</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="degree">Master's in Computer Science</div>
+                    <div class="university">George Mason University</div>
+                    <div class="edu-location">Ashburn, Virginia</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Bachelor's in Computer Science</div>
+                    <div class="university">JNTUH</div>
+                    <div class="edu-location">Hyderabad, India</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="summary-content">
+                <p>I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!</p>
+                <div class="btn-group">
+                    <a href="mailto:sushma.kankatala444@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                    <a href="tel:+15716049124" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Call Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sushma-k444" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/SushmaKankatala" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" title="Portfolio"><i class="fas fa-globe"></i></a>
+                <a href="#" title="Medium"><i class="fab fa-medium"></i></a>
+            </div>
+            <p>&copy; 2025 Sushma Kankatala. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mouse-following gradient effect
+        document.addEventListener('mousemove', function(e) {
+            const hero = document.querySelector('.hero');
+            const heroAfter = hero?.querySelector('::after');
+            if (hero) {
+                const rect = hero.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                hero.style.setProperty('--mouse-x', x + 'px');
+                hero.style.setProperty('--mouse-y', y + 'px');
+                
+                // Update the after pseudo-element position
+                hero.style.background = `
+                    radial-gradient(300px circle at ${x}px ${y}px, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                    linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)
+                `;
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll-based animations and header visibility
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const header = document.querySelector('header');
+            
+            // Show header after scrolling past hero section
+            if (scrollY > viewportHeight * 0.3) {
+                header.classList.add('visible');
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.classList.remove('visible');
+                header.style.background = '#ffffff';
+                header.style.backdropFilter = 'none';
+            }
+
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('section:not(.hero)');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = rect.top < viewportHeight * 0.8;
+                
+                if (isVisible) {
+                    section.classList.add('visible');
+                }
+            });
+
+            // Parallax effect for floating icons
+            const floatingIcons = document.querySelectorAll('.floating-icon');
+            floatingIcons.forEach((icon, index) => {
+                const speed = 0.2 + (index * 0.05);
+                const yPos = -(scrollY * speed);
+                icon.style.transform = `translateY(${yPos}px) rotate(${scrollY * 0.1}deg)`;
+            });
+        });
+
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                
+                // Random colors for particles
+                const colors = ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#7c3aed'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = `radial-gradient(circle, ${randomColor}, transparent)`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Add animation on scroll for skill items
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe skill items for animation
+        document.querySelectorAll('.skill-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(item);
+        });
+
+        // Add hover effect to experience items
+        document.querySelectorAll('.experience-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(145deg, #f8fafc, #e2e8f0)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.background = 'linear-gradient(145deg, #ffffff, #f8fafc)';
+            });
+        });
+
+        // Typing effect for hero subtitle
+        function typeWriter(element, text, speed = 150) {
+            let i = 0;
+            element.innerHTML = '';
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                } else {
+                    // Add blinking cursor
+                    element.innerHTML += '<span style="animation: blink 1s infinite;">|</span>';
+                }
+            }
+            typing();
+        }
+
+        // Initialize effects when page loads
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            // Add stagger animation to floating icons
+            document.querySelectorAll('.floating-icon').forEach((icon, index) => {
+                icon.style.animationDelay = (index * 0.5) + 's';
+            });
+
+            // Start typing effect for hero subtitle
+            const heroSubtitle = document.querySelector('.hero h2');
+            if (heroSubtitle) {
+                typeWriter(heroSubtitle, 'Senior Full Stack Developer');
+            }
+
+            // Animate hero stats on load
+            document.querySelectorAll('.stat-number').forEach((stat, index) => {
+                const finalValue = stat.textContent;
+                stat.textContent = '0';
+                
+                setTimeout(() => {
+                    animateNumber(stat, parseInt(finalValue.replace('+', '')), finalValue.includes('+'));
+                }, 1000 + (index * 200));
+            });
+        });
+
+        // Number animation for stats
+        function animateNumber(element, target, hasPlus = false) {
+            let current = 0;
+            const increment = target / 30;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (hasPlus ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (hasPlus ? '+' : '');
+                }
+            }, 50);
+        }
+
+        // Add interactive cursor effect
+        let cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursor.style.cssText = `
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #2563eb, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            opacity: 0;
+        `;
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+            cursor.style.opacity = '0.5';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '0.5';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+        });
+
+        // Add click ripple effect
+        document.addEventListener('click', function(e) {
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: fixed;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(37, 99, 235, 0.3), transparent);
+                pointer-events: none;
+                z-index: 9999;
+                animation: ripple 0.6s ease-out;
+                left: ${e.clientX - 50}px;
+                top: ${e.clientY - 50}px;
+            `;
+            
+            document.body.appendChild(ripple);
+            
+            // Add ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    0% { transform: scale(0); opacity: 0.5; }
+                    100% { transform: scale(2); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    </script>
+    <script src="interactive-effects.js"></script>
+</body>
+</html>
